@@ -1,0 +1,15 @@
+util 工具包
+conf 配置包 -> 初始化配置
+handler 责任链 -> 责任链配置 入口 sentence处理 -> phrase处理 -> word处理
+component 组件 -> Sentence phrase word模版类
+ main -> 主函数 输入输出
+
+
+
+
+
+处理流程：
+1 读取配置 初始化各组件
+2 输入 饭店 食物 文章模版
+3 责任链： 文章模版 -> Sentence责任链 -> Phrase责任链 -> Word责任链 -> 解析饭店和食物名
+4 输出
