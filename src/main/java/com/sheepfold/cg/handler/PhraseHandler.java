@@ -1,4 +1,11 @@
 package com.sheepfold.cg.handler;
 
-public class PhraseHandler {
+import com.sheepfold.cg.component.AbstractComponent;
+
+import java.util.List;
+
+public class PhraseHandler extends AbstractHandler {
+    public PhraseHandler(List<AbstractComponent> list) {
+        super(list);
+    }
 }

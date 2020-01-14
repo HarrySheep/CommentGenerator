@@ -9,6 +9,10 @@ public abstract class AbstractHandler {
     // 组件列表
     private List<AbstractComponent> componentList;
 
+    public AbstractHandler(List<AbstractComponent> list){
+        componentList = list;
+    }
+
     public String resolve(String content){
         for (AbstractComponent component : componentList) {
             content = component.resolvePlaceHolder(content);

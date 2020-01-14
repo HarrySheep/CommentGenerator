@@ -13,3 +13,8 @@ component 组件 -> Sentence phrase word模版类
 2 输入 饭店 食物 文章模版
 3 责任链： 文章模版 -> Sentence责任链 -> Phrase责任链 -> Word责任链 -> 解析饭店和食物名
 4 输出
+
+
+责任链组装：
+责任链入口 -> sentence责任链（sentence list) -> phrase责任链(phrase list) -> word责任链(word list) [处理固定占位符（饭店 食物)]
+
