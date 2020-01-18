@@ -4,7 +4,7 @@ import com.sheepfold.cg.component.AbstractComponent;
 
 import java.util.List;
 
-public abstract class AbstractHandler {
+public abstract class AbstractHandler implements FoodSequencePlaceHolderResolver {
 
     // 组件列表
     private List<AbstractComponent> componentList;

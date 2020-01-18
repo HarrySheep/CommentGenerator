@@ -38,6 +38,12 @@ component 组件 -> Sentence phrase word模版类
 方案1：FOOD_NAME分成FOOD_NAME1 FOOD_NAME2 （感觉行不通，因为要从sentence列表复制开始 到phrase word一直传递序号属性 字符串层面怎么传递？
 方案2：每一个食物sentence结束后加入一个特殊符号，区分一个食物sentence的结束 解析食物名称的时候 顺序读 遇到[符号]时序号加1 局限性:1.文章中有[符号]时会扰乱序号 2.食物只能顺序解析（一段一个食物） 对于乱序的文章 还是需要有序号标记
 
+{FOOD_N}{sentence}{/FOOD_N}
+{FOOD_1}{sentence}{/FOOD_1}
+对于N标记内的组件，复制食物数量次变成{FOOD_0}{sentence}{/FOOD_0} {FOOD_1}{sentence}{/FOOD_1} ..
+WordHandler对于序号标记内的FOOD_NAME解析成数组index的食物名称
+对于无标记的FOOD_NAME则为孤儿，取任意一个食物名称
+
 文章模板：
 餐厅
 食物1
