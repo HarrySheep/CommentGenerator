@@ -1,0 +1,9 @@
+{
+  "name" : "示例词语",
+  "placeHolder" : "{EXAMPLE_WORD}",
+  "needDelete" : false,
+  "list" : [
+    "巴阿大撒啊阿斯顿",
+    "倒萨大大i偶见大傻噢"
+  ]
+}
