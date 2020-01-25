@@ -19,15 +19,12 @@ public class WordHandler extends AbstractHandler {
     // 餐厅名 需要初始化
     private String restaurantName;
 
-    /*
-    public WordHandler(List<AbstractComponent> list, List<String> foodNameList, String restaurantName){
-        super();
 
-    }
-    */
-
-    public WordHandler(List<AbstractComponent> list) {
-        super(list);
+    public WordHandler(List<? extends AbstractComponent> componentList, List<String> foodNameList, String restaurantName)
+    {
+        super(componentList);
+        this.foodNameList = foodNameList;
+        this.restaurantName = restaurantName;
     }
 
     // todo 解析全部食物名称

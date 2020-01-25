@@ -3,6 +3,7 @@ package com.sheepfold.cg.component;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -21,6 +22,21 @@ public abstract class AbstractComponent {
 
     // 获取任一内容后，是否需要删除，默认不删除（可重复）
     Boolean needDelete = false;
+
+    /*********************               多重占位符定义start             *******************/
+    // 多重占位符定义 处理的时候会随机选取多个词语，并用[MULTIPLE_SEPARATOR]分隔
+    private String multiplePlaceHolder;
+
+    // 多重占位符分隔符
+    private String MULTIPLE_SEPARATOR = ",";
+
+    // 多重随机最小数量
+    private Integer MULTIPLE_MINIMUM = 2;
+
+    // 多重随机最大数量
+    private Integer MULTIPLE_MAXIMUM = 4;
+
+    /*********************               多重占位符定义end             *******************/
 
     /**
      * 返回组件内容中的任意一项
@@ -54,6 +70,35 @@ public abstract class AbstractComponent {
             String replaceStr = needDelete? getRandomOneAndDelete() : getRandomOne();
             content = content.replace(placeHolder, replaceStr);
         }
+        return content;
+    }
+
+    /**
+     * 解析content中的多重占位符，并用[MULTIPLE_SEPARATOR]分隔
+     * @param content
+     * @return
+     */
+    public String resolveMultiplePlaceHolder(String content){
+
+        // 如果该组件没有配置多重占位符，直接结束
+        if(StringUtils.isBlank(multiplePlaceHolder)){
+            return content;
+        }
+
+        // 组装一个多重环境形容词短语(1~2个形容词为佳)
+        while(content.contains(multiplePlaceHolder)) {
+            int i = RandomUtils.nextInt(MULTIPLE_MINIMUM, MULTIPLE_MAXIMUM);
+            StringBuilder sb = new StringBuilder("");
+            while (i-- != 0) {
+                String replaceStr = needDelete ? getRandomOneAndDelete() : getRandomOne();
+                sb.append(replaceStr);
+                if (i != 0) {
+                    sb.append(MULTIPLE_SEPARATOR);
+                }
+            }
+            content = content.replace(multiplePlaceHolder, sb.toString());
+        }
+
         return content;
     }
 }

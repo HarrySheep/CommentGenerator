@@ -7,15 +7,16 @@ import java.util.List;
 public abstract class AbstractHandler implements FoodSequencePlaceHolderResolver {
 
     // 组件列表
-    private List<AbstractComponent> componentList;
+    List<? extends AbstractComponent> componentList;
 
-    public AbstractHandler(List<AbstractComponent> list){
-        componentList = list;
+    public AbstractHandler(List<? extends AbstractComponent> componentList) {
+        this.componentList = componentList;
     }
 
     public String resolve(String content){
         for (AbstractComponent component : componentList) {
             content = component.resolvePlaceHolder(content);
+            content = component.resolveMultiplePlaceHolder(content);
         }
         return content;
     }
