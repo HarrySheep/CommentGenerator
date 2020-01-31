@@ -20,4 +20,6 @@ public abstract class AbstractHandler implements FoodSequencePlaceHolderResolver
         }
         return content;
     }
+
+    abstract String execute(String content);
 }

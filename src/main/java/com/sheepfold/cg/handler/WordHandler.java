@@ -7,7 +7,6 @@ import java.util.List;
 public class WordHandler extends AbstractHandler {
 
     // [食物]占位符
-    // todo 多个食物处理
     private String foodNamePlaceHolder = "{FOOD_NAME}";
 
     // 食物名列表 需要初始化
@@ -27,15 +26,25 @@ public class WordHandler extends AbstractHandler {
         this.restaurantName = restaurantName;
     }
 
-    // todo 解析全部食物名称
-    private String resolveFoodNames(String content){
-        return null;
-    }
-
     private String resolveRestaurantName(String content){
         while(content.contains(restaurantNamePlaceHolder)){
             content = content.replace(restaurantNamePlaceHolder, restaurantName);
         }
+        return content;
+    }
+
+    @Override
+    String execute(String content) {
+        // 暂时不处理<n>的word
+        // content = resolveNFoodPlaceHolder(content, ApplicationConfig.foodNum);
+        content = super.resolve(content);
+
+        // 处理餐厅名字
+        content = resolveRestaurantName(content);
+
+        // 处理食物名字
+        content = resolveFoodSequencePlaceHolder(content, foodNameList);
+
         return content;
     }
 }

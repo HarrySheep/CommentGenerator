@@ -2,6 +2,7 @@ package com.sheepfold.cg.handler;
 
 import java.util.List;
 
+// 对于多个食物的处理能力
 public interface FoodSequencePlaceHolderResolver {
 
      final String nFoodPlaceHolderPrefix = "{FOOD_N}";
