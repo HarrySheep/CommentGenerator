@@ -1,0 +1,8 @@
+{
+  "name" : "食物点评",
+  "placeHolder" : "{FOOD_COMMENT_SENTENCE}",
+  "needDelete" : false,
+  "list" : [
+    "[{FOOD_NAME}]:{MULTIPLE_FOOD_ADJ}"
+  ]
+}

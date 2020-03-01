@@ -1,0 +1,13 @@
+{
+  "name" : "副词",
+  "placeHolder" : "{ADV_WORD}",
+  "needDelete" : false,
+  "list" : [
+    "可谓",
+    "极其",
+    "极其",
+    "很",
+    "",
+    "比较"
+  ]
+}

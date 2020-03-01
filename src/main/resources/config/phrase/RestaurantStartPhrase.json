@@ -1,0 +1,11 @@
+{
+  "name" : "餐厅点评起始短语",
+  "placeHolder" : "{RESTAURANT_START_PHRASE}",
+  "needDelete" : true,
+  "list" : [
+    "终于{WITH_ADV}来到种草已久的{RESTAURANT_NAME}！",
+    "今天特地{WITH_ADV}来{EAT_V}{RESTAURANT_NAME}。",
+    "听了很久的网红店{RESTAURANT_NAME},终于{WITH_ADV}来{EAT_V}了！",
+    "{WITH_ADV}来{EAT_V}{RESTAURANT_NAME}。"
+  ]
+}

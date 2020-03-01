@@ -35,7 +35,7 @@ public class ComponentConfig {
             } catch (IOException e) {
                 throw new RuntimeException(e.getMessage());
             }
-            System.out.println(s);
+            //System.out.println(s);
             Word word = JsonUtil.getBean(s, Word.class);
             wordList.add(word);
         }
@@ -54,7 +54,7 @@ public class ComponentConfig {
             } catch (IOException e) {
                 throw new RuntimeException(e.getMessage());
             }
-            System.out.println(s);
+            //System.out.println(s);
             Phrase phrase = JsonUtil.getBean(s, Phrase.class);
             phraseList.add(phrase);
         }
@@ -73,7 +73,7 @@ public class ComponentConfig {
             } catch (IOException e) {
                 throw new RuntimeException(e.getMessage());
             }
-            System.out.println(s);
+            //System.out.println(s);
             Sentence sentence = JsonUtil.getBean(s, Sentence.class);
             sentenceList.add(sentence);
         }

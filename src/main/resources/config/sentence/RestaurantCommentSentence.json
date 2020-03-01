@@ -1,0 +1,8 @@
+{
+  "name" : "餐厅点评",
+  "placeHolder" : "{RESTAURANT_COMMENT_SENTENCE}",
+  "needDelete" : false,
+  "list" : [
+    "{RESTAURANT_START_PHRASE}{MULTIPLE_RESTAURANT_ADJ_PHRASE}"
+  ]
+}

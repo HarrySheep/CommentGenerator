@@ -1,0 +1,17 @@
+{
+  "name" : "环境形容词",
+  "placeHolder" : "{ENVIRONMENT_ADJ}",
+  "multiplePlaceHolder" : "{MULTIPLE_ENVIRONMENT_ADJ}",
+  "needDelete" : true,
+  "list" : [
+    "富丽堂皇",
+    "简陋但整齐",
+    "整洁明亮",
+    "干净舒服",
+    "安静优雅",
+    "简约",
+    "温馨",
+    "老字号",
+    "超越米其林级别"
+  ]
+}

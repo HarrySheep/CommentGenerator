@@ -1,0 +1,10 @@
+{
+  "name" : "结论短语",
+  "placeHolder" : "{CONCLUSION_PHRASE}",
+  "needDelete" : false,
+  "list" : [
+    "建议大家都{WITH_ADV}来{EAT_V}~",
+    "值得{WITH_ADV}来{EAT_V}！",
+    "下次一定要{WITH_ADV}来{EAT_V}的！"
+  ]
+}

@@ -34,12 +34,14 @@ public interface FoodSequencePlaceHolderResolver {
              }
 
              // 截取需要复制的(形如{FOOD_N}{component}{/FOOD_N}的字符串)字符串段
+             int indexOfPrefixEnd = indexOfPrefix + nFoodPlaceHolderPrefix.length();
              int indexOfSuffixEnd = indexOfSuffix + nFoodPlaceHolderSuffix.length();
-             final String prototype = sb.substring(indexOfPrefix, indexOfSuffixEnd);  //复制原型
+             final String prototype = sb.substring(indexOfPrefixEnd, indexOfSuffix);  //复制原型
 
              // 再次检查原型中是否还有夹杂不规范的序列占位符(无法解析）
              if(prototype.contains(nFoodPlaceHolderPrefix) || prototype.contains(nFoodPlaceHolderSuffix)){
                  // 暂时不支持嵌套输入 要递归啊
+                 System.err.println(prototype);
                  throw new IllegalArgumentException("食物N序列前缀后缀不可嵌套输入！会导致无法解析！请检查！");
              }
 
@@ -54,9 +56,10 @@ public interface FoodSequencePlaceHolderResolver {
                  // 替换前缀后缀占位符中的"N"为sequence
                  String sequencePrefix = nFoodPlaceHolderPrefix.replace("N", sequence);
                  String sequenceSuffix = nFoodPlaceHolderSuffix.replace("N", sequence);
-                 String newStr = prototype.replace(nFoodPlaceHolderPrefix, sequencePrefix);
-                 newStr = newStr.replace(nFoodPlaceHolderSuffix, sequenceSuffix);
-                 newStr = newStr.concat(enter); // 每一个sentence结束增加换行符
+                 String newStr = sequencePrefix.concat(prototype).concat(sequenceSuffix);
+                 if(i != n-1) {
+                     newStr = newStr.concat(enter); // 每一个sentence结束增加换行符
+                 }
 
                  // 拼接字符串
                  sb.insert(indexOfConcat, newStr);
@@ -77,7 +80,7 @@ public interface FoodSequencePlaceHolderResolver {
      * @param foodNameList
      * @return
      */
-     default String resolveFoodSequencePlaceHolder(final String content,final List<String> foodNameList) {
+     default String resolveFoodSequencePlaceHolder(final String content, final List<String> foodNameList) {
          StringBuilder sb = new StringBuilder(content);
 
          for (int i = 0; i < foodNameList.size(); i++) {
@@ -99,8 +102,10 @@ public interface FoodSequencePlaceHolderResolver {
                  }
 
                  // 如果有嵌套序列占位符，抛出异常（无法解析）
-                 if (sb.indexOf(sequencePrefix, indexOfPrefix + 1) < indexOfSuffix) {
+                 int indexIfNested = sb.indexOf(sequencePrefix, indexOfPrefix + 1);
+                 if (indexIfNested != -1 && indexIfNested < indexOfSuffix) {
                      // 暂时不支持嵌套输入 要递归啊
+                     System.err.println(sb);
                      throw new IllegalArgumentException("食物" + i + "序列前缀后缀不可嵌套输入！会导致无法解析！请检查！");
                  }
 

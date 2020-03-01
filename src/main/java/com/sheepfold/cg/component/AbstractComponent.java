@@ -55,7 +55,12 @@ public abstract class AbstractComponent {
     public String getRandomOneAndDelete(){
         int size = list.size();
         int i = RandomUtils.nextInt(0, size);
-        String result =  list.get(i);
+        String result = null;
+        try {
+            result = list.get(i);
+        }catch (IndexOutOfBoundsException e){
+            System.err.println(name  + "词汇量不够啦！");
+        }
         list.remove(i);
         return result;
     }
@@ -68,7 +73,7 @@ public abstract class AbstractComponent {
     public String resolvePlaceHolder(String content){
         while(content.contains(placeHolder)){
             String replaceStr = needDelete? getRandomOneAndDelete() : getRandomOne();
-            content = content.replace(placeHolder, replaceStr);
+            content = StringUtils.replaceOnce(content, placeHolder, replaceStr);
         }
         return content;
     }
@@ -96,7 +101,7 @@ public abstract class AbstractComponent {
                     sb.append(MULTIPLE_SEPARATOR);
                 }
             }
-            content = content.replace(multiplePlaceHolder, sb.toString());
+            content = StringUtils.replaceOnce(content, multiplePlaceHolder, sb.toString());
         }
 
         return content;

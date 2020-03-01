@@ -1,0 +1,8 @@
+{
+  "name" : "结论点评",
+  "placeHolder" : "{CONCLUSION_COMMENT_SENTENCE}",
+  "needDelete" : false,
+  "list" : [
+    "{FAMOUS_PHRASE}{CONCLUSION_PHRASE}"
+  ]
+}

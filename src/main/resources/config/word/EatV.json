@@ -1,0 +1,12 @@
+{
+  "name" : "吃的动词",
+  "placeHolder" : "{EAT_V}",
+  "needDelete" : false,
+  "list" : [
+    "尝鲜",
+    "拔草",
+    "品尝",
+    "试试",
+    "吃"
+  ]
+}

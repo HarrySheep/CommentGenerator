@@ -1,0 +1,11 @@
+{
+  "name" : "位置形容词",
+  "placeHolder" : "{LOCATION_ADJ}",
+  "needDelete" : false,
+  "list" : [
+    "好找",
+    "难找",
+    "偏僻",
+    "显眼"
+  ]
+}

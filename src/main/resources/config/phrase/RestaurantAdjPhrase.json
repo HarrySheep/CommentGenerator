@@ -1,0 +1,11 @@
+{
+  "name" : "餐厅形容短语",
+  "placeHolder" : "{RESTAURANT_ADJ_PHRASE}",
+  "multiplePlaceHolder" : "{MULTIPLE_RESTAURANT_ADJ_PHRASE}",
+  "needDelete" : true,
+  "list" : [
+    "环境{MULTIPLE_ENVIRONMENT_ADJ}",
+    "位置{LOCATION_ADJ}",
+    "等位的人{AMOUNT_ADJ}"
+  ]
+}
